@@ -30,8 +30,8 @@ class OtpServiceImpl : OtpService {
 
     override fun updateOtp(code: String): Boolean {
         val otpLocal = otpRepository.findByCode(code)
-        otpLocal?.isActive = false
-        return if (otpLocal != null) {
+        return if (otpLocal != null && otpLocal.isActive) {
+            otpLocal.isActive = false
             otpRepository.save(otpLocal)
             true
         } else {

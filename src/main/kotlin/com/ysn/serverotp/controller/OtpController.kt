@@ -25,7 +25,7 @@ class OtpController {
     fun sendOtp(@RequestParam phoneNumber: String): ResponseEntity<Map<String, Any>> {
         val codeOtp = otpService.createOtp()
         val formRequestBody = FormBody.Builder()
-                .add("apikey", "nilai-api-key")
+                .add("apikey", "E9/w2uJS1S4-6MJ3cguBaQKXxpBIMCmwOkyQUlhK0E")
                 .add("message", codeOtp)
                 .add("sender", "System")
                 .add("numbers", phoneNumber)
